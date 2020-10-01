@@ -1,4 +1,10 @@
+library(here)
+library(plyr) 
+#setwd("C:/Users/Muhannad/Desktop/multvariat/Time_series/mdp/Net-transition-probabilities-master")
+# Read data
+#
 
+onlinedata=r1<- read.csv(here::here("data", "Online Retail.csv"),header=TRUE, sep=",")
 #onlinedata=read.csv("C:/Users/Muhannad/Downloads/Online Retail.csv",header=T)
 
 
@@ -26,7 +32,7 @@ Minimum=aggregate(Prepare$x,by = list(Prepare$Group.1), FUN=min)
 names(Minimum)=c("CutomerID","Minimum")
 ##### need for decisions
 ##########d=ourdata[order(ourdata$Date,ourdata$Time),]
-library(plyr) 
+
 transactions=count(ourdata, c("ourdata$CustomerID","ourdata$Date","ourdata$Time")) ## to calculate transactions 
 #for each customer in different times
 transactions[c(1:60),]
